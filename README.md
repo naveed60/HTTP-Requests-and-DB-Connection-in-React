@@ -4,3 +4,4 @@ Travel blogs are for you if you’ve got a serious case of wanderlust or have ju
 Nomadic Matt is one such example. It offers budget travel tips, destination guides, and personal travel stories.
 
 The blog makes travel accessible to everyone, as it covers topics like, how to find affordable accommodations and explore less-visited destinations. With its emphasis on budget-friendly travel, Nomadic Matt has cemented itself as a favorite among eager travelers looking to book trips without breaking the bank.
+https://docs.google.com/document/d/1d1SwzVEGspB46ZmCb2Spu8nNB86Vt3lN2vvjXq-MKp0/edit?tab=t.0
