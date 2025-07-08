@@ -5,3 +5,4 @@ Nomadic Matt is one such example. It offers budget travel tips, destination guid
 
 The blog makes travel accessible to everyone, as it covers topics like, how to find affordable accommodations and explore less-visited destinations. With its emphasis on budget-friendly travel, Nomadic Matt has cemented itself as a favorite among eager travelers looking to book trips without breaking the bank.
 https://docs.google.com/document/d/1d1SwzVEGspB46ZmCb2Spu8nNB86Vt3lN2vvjXq-MKp0/edit?tab=t.0
+Once the model’s has_many foreign_key: matches the real column in your lsd_resources table, destroying a checklist will clean up its resources (and scorefactortips and alternatives), and your ActiveAdmin destroy action will succeed.
