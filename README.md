@@ -8,20 +8,15 @@ API Requests
 An API request is a higher-level concept - it's a request made to an Application Programming Interface to access specific functionality or data. API requests typically use HTTP as their transport protocol.
 Types of APIs:
 
-REST APIs: Use HTTP methods and follow REST principles
-GraphQL APIs: Use HTTP but with a different query structure
-SOAP APIs: Use HTTP but with XML messaging
-gRPC APIs: Can use HTTP/2 but with different protocols
+I've created several modern coupon button designs for your Rails ERB template! Here are 5 different styles:
 
-The Relationship
-Most modern web APIs are RESTful APIs that use HTTP as their communication protocol. So when you make an "API request," you're actually making an HTTP request to an API endpoint.
-Example: Making an API request using HTTP:
-javascript// This is both an HTTP request AND an API request
-fetch('https://api.github.com/users/octocat', {
-  method: 'GET',
-  headers: {
-    'Authorization': 'token your-token-here',
-    'Accept': 'application/json'
+Elegant Gradient - Smooth gradient with shine effect on hover
+Pulsing Glow - Continuously pulsing with glow animation
+Ticket-Style - Classic coupon ticket design with bouncing animation
+Gradient Flash - Multi-color gradient that cycles through colors
+Neon Retro - Cyberpunk-style neon blinking effect
+
+To use these in your Rails ERB template, simply add the CSS to your stylesheet and use one of these class names:
   }
 })
 Key Differences in Practice
