@@ -1,13 +1,47 @@
-Great question! Let me clarify the relationship between HTTP requests and API requests, as there's often confusion about these terms.HTTP Requests vs API RequestsHTTP requests and API requests aren't opposites - they're related concepts at different levels of abstraction.HTTP RequestsHTTP (HyperText Transfer Protocol) is the underlying communication protocol used on the web. An HTTP request is the technical mechanism for sending data between a client and server.Components of an HTTP request:
+We are going to cover making HTTP requests from a React application and connecting to a database.
+Note: React is a frontend library, so it doesn't connect directly to a database. Instead, we make HTTP requests to a backend server (like Node.js, Express, etc.) that interacts with the database.
 
-Method: GET, POST, PUT, DELETE, etc.
-URL: The endpoint you're requesting
-Headers: Metadata like content type, authentication
-Body: Data being sent (for POST, PUT requests)
-API Requests
-An API request is a higher-level concept - it's a request made to an Application Programming Interface to access specific functionality or data. API requests typically use HTTP as their transport protocol.
-Types of APIs:
+Steps:
 
+Setting up a React app.
+
+Making HTTP requests from React to a backend API.
+
+Example of a backend API (for context) that connects to a database.
+
+Since the focus is on React, we'll briefly show how to set up a simple Express server with a database (using MongoDB as an example) and then focus on the React part.
+
+Part 1: React HTTP Requests
+
+We can use the built-in fetch or libraries like axios to make HTTP requests.
+
+Example using fetch:
+
+GET request
+
+POST request
+
+Example using axios:
+
+GET request
+
+POST request
+
+Part 2: Backend Server (Express + MongoDB) for context
+
+We'll create a simple Express server with Mongoose to interact with MongoDB.
+
+Part 3: Connecting React to the Backend
+
+Let's break it down:
+
+Create a React app (using Create React App or any other method).
+
+In the React app, we'll make requests to the backend API.
+
+We'll create a simple component that:
+
+Fetches data from the backend (GET)
 I've created several modern coupon button designs for your Rails ERB template! Here are 5 different styles:
 
 Elegant Gradient - Smooth gradient with shine effect on hover
