@@ -18,7 +18,40 @@ We can use the built-in fetch or libraries like axios to make HTTP requests.
 Example using fetch:
 
 GET request
+Once basics work:
 
+Search bar (query param on GET /api/books?search=...)
+
+Filters: category, price range
+
+Pagination
+
+Book reviews & ratings
+
+Real payment integration (Stripe, PayPal)
+
+Image upload (Cloudinary, etc.)
+
+Responsive UI with Tailwind / Bootstrap.
+
+11. Deployment (later)
+
+Backend: Render, Railway, Heroku alternative, or VPS.
+
+Database: MongoDB Atlas.
+
+Frontend: Vercel, Netlify, etc.
+
+Set environment variables in production.
+
+If you want, next step I can do for you is:
+
+Give you a minimal MERN book-store boilerplate structure (exact file tree + empty files)
+or
+
+Write full code for one part, like: “books API with Express + MongoDB” or “auth system for this bookstore”.
+
+Tell me which part you want full code for first: books API, auth, cart/order, or React frontend setup.
 POST request
 
 Example using axios:
