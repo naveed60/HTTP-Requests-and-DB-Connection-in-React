@@ -23,6 +23,67 @@ Once basics work:
 Search bar (query param on GET /api/books?search=...)
 
 Filters: category, price range
+Common security vulnerabilities in Next.js applications typically stem from how data is rendered (SSR/CSR), how API routes are handled, and standard web vulnerabilities that affect React.
+
+Here are the critical security issues to watch for in Next.js and how to fix them.
+
+1. Cross-Site Scripting (XSS) via dangerouslySetInnerHTML
+React naturally protects against XSS by escaping content. However, developers often bypass this using dangerouslySetInnerHTML. If the data passed here is not sanitized, attackers can inject malicious scripts.
+
+The Risk: An attacker inputs <img src=x onerror=alert(1)> into a comment field, and your app renders it raw.
+
+The Fix: Use a sanitation library like DOMPurify before rendering.
+
+JavaScript
+
+import DOMPurify from 'isomorphic-dompurify';
+
+const content = "<img src=x onerror=alert('Hacked')>";
+const clean = DOMPurify.sanitize(content);
+
+function MyComponent() {
+  return <div dangerouslySetInnerHTML={{ __html: clean }} />;
+}
+2. Server-Side Request Forgery (SSRF) in API Routes
+Next.js allows you to build backend API routes (/pages/api or /app/api). If your API fetches data from a URL provided by a user without validation, an attacker can trick your server into querying internal resources (like AWS metadata services or internal databases) that are not exposed to the public internet.
+
+The Risk: An attacker sends https://your-site.com/api/proxy?url=http://169.254.169.254/latest/meta-data/.
+
+The Fix: Whitelist allowed domains and validate URLs strictly.
+
+JavaScript
+
+// Good practice in API route
+const allowedDomains = ['api.example.com', 'partners.com'];
+
+export default async function handler(req, res) {
+  const { url } = req.query;
+  const parsedUrl = new URL(url);
+
+  if (!allowedDomains.includes(parsedUrl.hostname)) {
+    return res.status(400).json({ error: 'Invalid domain' });
+  }
+
+  const response = await fetch(url);
+  // ...
+}
+3. Leaking Secrets in the Client Bundle
+This is the most common Next.js specific error. Environment variables prefixed with NEXT_PUBLIC_ are bundled into the JavaScript sent to the browser. If you accidentally prefix a private key (like a Stripe Secret Key or Database Password) with NEXT_PUBLIC_, it is visible to anyone who inspects your source code.
+
+The Risk: NEXT_PUBLIC_DB_PASSWORD is visible in the "Sources" tab of Chrome DevTools.
+
+The Fix:
+
+Only use NEXT_PUBLIC_ for variables that are truly public (like Google Analytics IDs).
+
+Keep secret keys (API secrets, DB passwords) in .env without the prefix and only access them inside getStaticProps, getServerSideProps, or API routes.
+
+4. Broken Authentication in Middleware
+Next.js Middleware allows you to run code before a request is completed. A common mistake is using NextResponse.next() too liberally or failing to properly verify JSON Web Tokens (JWTs) on protected routes.
+
+The Risk: A user manually sets a fake cookie or header, bypassing a weak check in middleware.
+
+The Fix: Use established libraries (like next-auth or jose) to verify the signature of the token, not just its presence.
 
 Pagination
 
